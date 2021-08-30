@@ -1,0 +1,26 @@
+.entry-btn {
+  width: 50%;
+  height: 25%;
+}
+#mainPage {
+  background-color: coral;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+.entry-header {
+  font-size: 10rem;
+  color: lavenderblush;
+}
+
+@media (max-width: 40rem) {
+  .entry-header {
+    font-size: 5rem;
+    color: lavenderblush;
+  }
+}
