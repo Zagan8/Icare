@@ -2,6 +2,7 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Button, Link } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 import "./Login.css";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Login: React.FC = () => {
+  let history = useHistory();
   const classes = useStyles();
   return (
     <div id="login-modal" className={classes.root}>
@@ -24,7 +26,14 @@ const Login: React.FC = () => {
       <TextField label="Password" />
       <br />
       <Link href="#">Forget password?</Link>
-      <Button color="primary">Sign in</Button>
+      <Button
+        onClick={() => {
+          history.push("/helper");
+        }}
+        color="primary"
+      >
+        Sign in
+      </Button>
       <Button variant="contained" color="secondary">
         Register now
       </Button>
