@@ -48,7 +48,7 @@ export default function SimpleModal(props: { type: string }) {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <Login />
+      <Login type={props.type} />
     </div>
   );
 

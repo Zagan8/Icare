@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Login: React.FC = () => {
+const Login: React.FC<{ type: string }> = props => {
   let history = useHistory();
   const classes = useStyles();
   return (
@@ -28,7 +28,9 @@ const Login: React.FC = () => {
       <Link href="#">Forget password?</Link>
       <Button
         onClick={() => {
-          history.push("/helper");
+          props.type === "Im here to help"
+            ? history.push("/helper")
+            : history.push("/InNeedPage");
         }}
         color="primary"
       >
