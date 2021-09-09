@@ -1,9 +1,11 @@
 .help-variation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
   width: 25vw;
   height: 20vh;
   margin: 5px;
-  text-align: center;
-  padding-top: 50px;
+
   color: black;
 }

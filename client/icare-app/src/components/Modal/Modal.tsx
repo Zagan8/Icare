@@ -4,13 +4,10 @@ import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
 import Login from "../Login/Login";
 import "./Modal.css";
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
 
 function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+  const top = 50;
+  const left = 50;
 
   return {
     top: `${top}%`,
@@ -32,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function SimpleModal(props: { type: string }) {
+const SimpleModal: React.FC<{ type: string }> = props => {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -48,7 +45,7 @@ export default function SimpleModal(props: { type: string }) {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <Login type={props.type} />
+      {props.children}
     </div>
   );
 
@@ -84,4 +81,6 @@ export default function SimpleModal(props: { type: string }) {
       </Modal>
     </div>
   );
-}
+};
+
+export default SimpleModal;
