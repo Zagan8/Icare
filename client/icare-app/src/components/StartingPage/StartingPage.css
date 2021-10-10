@@ -1,0 +1,27 @@
+.starting-page {
+  background-image: url("../../media/IcareMainBackground.jpeg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  height: 100vh;
+  width: 100vw;
+}
+
+.starting-header {
+  margin: 0;
+  color: white;
+  position: relative;
+  left: 40%;
+}
+.log-in-main-page {
+  position: relative;
+  top: 40%;
+  left: 48%;
+}
+.simple-modal {
+  width: 30%;
+  height: 40%;
+  position: relative;
+  top: 40%;
+  left: 35%;
+}

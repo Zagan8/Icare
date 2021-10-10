@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import TextField from "@material-ui/core/TextField";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Button, Link } from "@material-ui/core";
@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom";
 import "./Login.css";
 import SimpleModal from "../Modal/Modal";
 import Register from "../Register/Register";
+import ModalState from "../state/modal-state";
+import axios from "axios";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,29 +21,52 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Login: React.FC<{ type: string }> = props => {
-  const [logintriger, setLoginTriger] = useState(false);
+  const { documentType, setDocumentType } = useContext(ModalState);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   let history = useHistory();
   const classes = useStyles();
-  return !logintriger ? (
+  return (
     <div id="login-modal" className={classes.root}>
       <h2>Log in</h2>
-      <TextField label="User Name" />
-      <TextField label="Password" />
+      <TextField
+        onChange={e => {
+          setEmail(e.target.value);
+        }}
+        label="Email"
+      />
+      <TextField
+        onChange={e => {
+          setPassword(e.target.value);
+        }}
+        label="Password"
+      />
       <br />
       <Link href="#">Forget password?</Link>
       <Button
-        onClick={() => {
-          props.type === "Im here to help"
-            ? history.push("/helper")
-            : history.push("/InNeedPage");
+        onClick={async () => {
+          await axios
+            .post("http://localhost:1337/auth/local", {
+              identifier: email,
+              password: password
+            })
+            .then(response => {
+              if (response.status === 200) {
+                console.log(response.data);
+                alert(response.data.user.username);
+              }
+            });
+
+          // history.push("/MainPage");
         }}
+        variant="contained"
         color="primary"
       >
         Sign in
       </Button>
       <Button
         onClick={() => {
-          setLoginTriger(true);
+          setDocumentType("register");
         }}
         variant="contained"
         color="secondary"
@@ -49,8 +74,6 @@ const Login: React.FC<{ type: string }> = props => {
         Register now
       </Button>
     </div>
-  ) : (
-    <Register />
   );
 };
 

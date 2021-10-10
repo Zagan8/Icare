@@ -4,7 +4,6 @@
 }
 #mainPage {
   background-color: coral;
-  margin: 0;
   width: 100vw;
   height: 100vh;
 }
@@ -14,6 +13,7 @@
   justify-content: center;
 }
 .entry-header {
+  margin: 0;
   text-align: center;
   font-size: 10rem;
   color: lavenderblush;
@@ -23,5 +23,17 @@
   .entry-header {
     font-size: 5rem;
     color: lavenderblush;
+    margin: 0;
   }
+}
+
+.helper-btn {
+  position: relative;
+  left: 40%;
+  top: 10%;
+}
+.inNeed-btn {
+  position: relative;
+  left: 35%;
+  top: 10%;
 }

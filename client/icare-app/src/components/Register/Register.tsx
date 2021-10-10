@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
@@ -12,6 +12,7 @@ import clsx from "clsx";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import axios from "axios";
+import ModalState from "../state/modal-state";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -40,6 +41,7 @@ interface State {
 }
 
 const Register: React.FC = () => {
+  const { documentType, setDocumentType } = useContext(ModalState);
   const [email, setEmail] = useState("");
   const [user, setUser] = useState("");
   let history = useHistory();
@@ -182,6 +184,13 @@ const Register: React.FC = () => {
         color="primary"
       >
         Register
+      </Button>
+      <Button
+        onClick={() => {
+          setDocumentType("login");
+        }}
+      >
+        Go backk
       </Button>
     </div>
   );

@@ -1,36 +1,33 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 import "./MainPage.css";
-import { Container } from "@material-ui/core";
-import SimpleModal from "../Modal/Modal";
-import Login from "../Login/Login";
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      "& > *": {
-        margin: theme.spacing(1)
-      }
-    }
-  })
-);
 
 const MainPage: React.FC = () => {
-  const classes = useStyles();
+  let history = useHistory();
   return (
-    <>
-      <div id="mainPage" className={classes.root}>
-        <h1 className="entry-header">Here we care</h1>
-        <div className="container">
-          <SimpleModal type="Im here to help">
-            <Login type="Im here to help" />
-          </SimpleModal>
-          <SimpleModal type="I need help">
-            <Login type="I need help" />
-          </SimpleModal>
-        </div>
-      </div>
-    </>
+    <div id="mainPage">
+      <h1 className="entry-header">Here we care</h1>
+
+      <Button
+        onClick={() => history.push("/helper")}
+        className="inNeed-btn"
+        variant="contained"
+        color="primary"
+        size="large"
+      >
+        Im here to help
+      </Button>
+      <Button
+        onClick={() => history.push("/InNeedPage")}
+        className="helper-btn"
+        variant="contained"
+        color="secondary"
+        size="large"
+      >
+        I need help
+      </Button>
+    </div>
   );
 };
 
