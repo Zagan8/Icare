@@ -8,12 +8,13 @@ const StartingPage: React.FC = () => {
   const [documentType, setDocumentType] = useState("login");
   return (
     <div className="starting-page">
-      <h1 className="starting-header">Love is everything</h1>
+      <p className="cloud-text cloud-title">Icare</p>
+      <p className="cloud-text attribute">Place that you can make change!</p>
       <div className="simple-modal">
         <ModalState.Provider
           value={{
             documentType: documentType,
-            setDocumentType: setDocumentType
+            setDocumentType: setDocumentType,
           }}
         >
           <SimpleModal content="Log-in">

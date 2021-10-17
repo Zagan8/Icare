@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wishes",
+  "info": {
+    "name": "wishes",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "biginteger"
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "street": {
+      "type": "string",
+      "required": true
+    },
+    "apartmentNumber": {
+      "type": "integer",
+      "required": true
+    },
+    "zipCode": {
+      "type": "biginteger"
+    },
+    "discription": {
+      "type": "text"
+    }
+  }
+}

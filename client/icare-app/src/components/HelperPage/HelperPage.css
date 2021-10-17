@@ -1,4 +1,9 @@
 .helper-page {
+  background-image: url("../../media/piqsels.com-id-jczcd\ .jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+
   text-align: center;
 }
 
