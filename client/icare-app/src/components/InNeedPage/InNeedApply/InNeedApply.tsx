@@ -21,9 +21,9 @@ const InNeedApply: React.FC<applyProps> = ({ type }) => {
       city: city,
       street: street,
       apartmentNumber: apartmentNumber,
-      zipCode: zipCode,
+      zipCode: zipCode
     },
-    discription: discription,
+    discription: discription
   };
 
   function onApply(applyObj: {}) {
@@ -40,57 +40,57 @@ const InNeedApply: React.FC<applyProps> = ({ type }) => {
           zipCode: zipCode,
           discription: discription,
           type: type.name,
-          img: type.img,
+          img: type.img
         },
         {
           headers: {
             authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM0NDg2MjY1LCJleHAiOjE2MzcwNzgyNjV9.hwBLn834Q9TlFhjrxtA46boZLCWrq3qcRrdGUmq5VsA",
-          },
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjM0NzIzOTAzLCJleHAiOjE2MzczMTU5MDN9.5WARWmullxrj-A6EYpETbWlOJEUMauxKyv3S4tFjMgs"
+          }
         }
       )
-      .then((res) => console.log(res));
+      .then(res => console.log(res));
   }
   return (
     <div>
       <h1>One more step</h1>
       <TextField
-        onChange={(e) => {
+        onChange={e => {
           setName(e.target.value);
         }}
         label="Full name"
       />
       <br />
       <TextField
-        onChange={(e) => {
+        onChange={e => {
           setPhone(e.target.value);
         }}
         label="Phone"
       />
       <br />
       <TextField
-        onChange={(e) => {
+        onChange={e => {
           setCity(e.target.value);
         }}
         label="City"
       />
       <br />
       <TextField
-        onChange={(e) => {
+        onChange={e => {
           setStreet(e.target.value);
         }}
         label="Street"
       />
       <br />
       <TextField
-        onChange={(e) => {
+        onChange={e => {
           setApartmentNumber(e.target.value);
         }}
         label="Apartment number"
       />
       <br />
       <TextField
-        onChange={(e) => {
+        onChange={e => {
           setZipCode(e.target.value);
         }}
         label="zip code"
@@ -98,7 +98,7 @@ const InNeedApply: React.FC<applyProps> = ({ type }) => {
       <br />
       <br />
       <TextField
-        onChange={(e) => {
+        onChange={e => {
           setDiscription(e.target.value);
         }}
         style={{ width: "400px" }}

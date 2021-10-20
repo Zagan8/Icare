@@ -11,47 +11,44 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles({
   root: {
     margin: 5,
-    maxWidth: 345,
+    maxWidth: 345
   },
   media: {
-    height: 140,
-  },
+    height: 140
+  }
 });
 
 interface cardProps {
+  name: string;
+  phone: number;
   city: string;
-  img: string;
+  street: string;
+  apartmentNumber: number;
+  zipCode: number;
+  discription: string;
   type: string;
-  inNeedData?: {};
+  img: string;
 }
-const InNeedCard: React.FC<cardProps> = ({ city, img, type }) => {
+const InNeedCard: React.FC<any> = ({ inNeedData }) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card onClick={() => console.log(inNeedData)} className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={img}
+          image={inNeedData.img}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {city}
+            {inNeedData.city}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {type}
+            {inNeedData.type}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
     </Card>
   );
 };
