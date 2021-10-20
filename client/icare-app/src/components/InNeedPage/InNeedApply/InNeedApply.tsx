@@ -2,7 +2,10 @@ import { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
-const InNeedApply: React.FC = () => {
+interface applyProps {
+  type: any;
+}
+const InNeedApply: React.FC<applyProps> = ({ type }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
@@ -36,6 +39,8 @@ const InNeedApply: React.FC = () => {
           apartmentNumber: apartmentNumber,
           zipCode: zipCode,
           discription: discription,
+          type: type.name,
+          img: type.img,
         },
         {
           headers: {

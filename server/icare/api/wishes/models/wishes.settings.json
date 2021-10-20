@@ -35,6 +35,12 @@
     },
     "discription": {
       "type": "text"
+    },
+    "type": {
+      "type": "string"
+    },
+    "img": {
+      "type": "text"
     }
   }
 }
