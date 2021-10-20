@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Login: React.FC<{ type: string }> = props => {
-  const { documentType, setDocumentType } = useContext(ModalState);
+  const { setUser, setDocumentType } = useContext(ModalState);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let history = useHistory();
@@ -46,18 +46,19 @@ const Login: React.FC<{ type: string }> = props => {
       <Button
         onClick={async () => {
           await axios
-            .post("http://localhost:1337/auth/local", {
+            .post("http://localhost:3001/auth/local", {
               identifier: email,
               password: password
             })
             .then(response => {
               if (response.status === 200) {
                 console.log(response.data);
-                alert(response.data.user.username);
+
+                localStorage.setItem("jwt", response.data.jwt);
+                setUser(response.data.user);
+                history.push("/MainPage");
               }
             });
-
-          // history.push("/MainPage");
         }}
         variant="contained"
         color="primary"

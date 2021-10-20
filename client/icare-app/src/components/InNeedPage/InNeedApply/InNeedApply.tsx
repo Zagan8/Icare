@@ -6,6 +6,7 @@ interface applyProps {
   type: any;
 }
 const InNeedApply: React.FC<applyProps> = ({ type }) => {
+  const webToken = localStorage.getItem("jwt");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
@@ -44,8 +45,7 @@ const InNeedApply: React.FC<applyProps> = ({ type }) => {
         },
         {
           headers: {
-            authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjM0NzIzOTAzLCJleHAiOjE2MzczMTU5MDN9.5WARWmullxrj-A6EYpETbWlOJEUMauxKyv3S4tFjMgs"
+            authorization: `Bearer ${webToken}`
           }
         }
       )
