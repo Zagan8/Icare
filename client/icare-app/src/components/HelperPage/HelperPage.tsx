@@ -1,15 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import "./HelperPage.css";
 import InNeedCard from "../InNeedCard/InNeedCard";
 import axios from "axios";
 import InNeedModal from "../InNeedPage/InNeedModal/InNeedModal";
 import InNeedPopUp from "../InNeedPage/InNeedPopUp/InNeedPopUp";
 import MenuAppBar from "../AppBar/MenuAppBar";
+import ModalState from "../state/modal-state";
+import { userState } from "../state/user-state";
+
 const HelperPage: React.FC = () => {
+  console.log(userState);
   const webToken = localStorage.getItem("jwt");
   const [inNeed, setInNeed] = useState<any[]>([]);
   const [isClicked, setIsClicked] = useState(false);
   const [modalData, setModalData] = useState<any>({});
+  const { setDocumentType } = useContext(ModalState);
 
   useEffect(() => {
     async function getNeeded() {

@@ -6,7 +6,7 @@ import ModalState from "../state/modal-state";
 import Register from "../Register/Register";
 const StartingPage: React.FC = () => {
   const [documentType, setDocumentType] = useState("login");
-  const [user, setUser] = useState<any>({});
+
   return (
     <div className="starting-page">
       <p className="cloud-text cloud-title">Icare</p>
@@ -15,9 +15,7 @@ const StartingPage: React.FC = () => {
         <ModalState.Provider
           value={{
             documentType: documentType,
-            setDocumentType: setDocumentType,
-            user: user,
-            setUser: setUser,
+            setDocumentType: setDocumentType
           }}
         >
           <SimpleModal content="Log-in">

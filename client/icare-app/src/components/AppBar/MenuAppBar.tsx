@@ -11,8 +11,10 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import { userState } from "../state/user-state";
 
-export default function MenuAppBar() {
+const MenuAppBar: React.FC = () => {
+  console.log(userState);
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -74,7 +76,7 @@ export default function MenuAppBar() {
                 component="div"
                 sx={{ flexGrow: 0.1 }}
               >
-                admin
+                {userState.username }
               </Typography>
               <Menu
                 id="menu-appbar"
@@ -101,4 +103,6 @@ export default function MenuAppBar() {
       </AppBar>
     </Box>
   );
-}
+};
+
+export default MenuAppBar;
